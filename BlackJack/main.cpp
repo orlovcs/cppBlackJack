@@ -44,11 +44,13 @@ int main(int argc, const char * argv[]) {
         }
     }
     
+    
+    cout << "-----------" << endl;
     cout << "players cards are: " << endl;
     for (auto m: playerlist){
         m->showCards();
-            }
-    
+        }
+    cout << "-----------" << endl;
 
 
     
@@ -57,19 +59,32 @@ int main(int argc, const char * argv[]) {
     cout << "hit: " << endl;
     for (auto m: playerlist){
         cout << "There are " << d.getSize() << " cards left in the deck." << endl;
-
+        if (d.getSize() < 1){
+            cout << "Not enough cards." << endl;
+            break;
+        }
+        cout << ">>>>>>>>>>>> " << m->getName() << "'s turn." << endl;
         cout << "hit " << m->getName() << "?" << endl;
         string hit;
         cin >> hit;
+        
+        if (hit == "yes"){
         while (hit == "yes"){
        m->acceptCard(d.deal());
-       cout << m->getName() << " was hit, they now have: " << endl;
+       cout << m->getName() << " was hit" << endl;
        m->showCards();
+            
+            if (d.getSize() < 1){
+                cout << "Not enough cards." << endl;
+                break;
+            }
+            
             if (m->calcValues()==21){
                 cout << m->getName() << " got a blackjack" << endl;
                 hit = "no";
                 continue;
             }
+            
             else if (m->calcValues()>21){
                 cout << m->getName() << " got a bust" << endl;
                 hit = "no";
@@ -77,9 +92,12 @@ int main(int argc, const char * argv[]) {
             }
        cout << "hit " << m->getName() << " again?" << endl;
        cin >> hit;
-       }
-        cout << m->getName() << " has stood" << endl;
+        }}else{
+            cout << m->getName() << " has stood" << endl;
+        }
         
+        
+        cout << "<<<<<<<<<<<< "  << m->getName() << "'s turn ended." << endl;
         
         }
     
