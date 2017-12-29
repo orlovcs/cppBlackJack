@@ -9,7 +9,18 @@ class deck{
     vector< card* > d;
 public:
     deck(){
-        d.emplace_back( new card("10","Hearts"));
+        string suites[] = {"ACE", "CLUBS","SPADES", "HEARTS"};
+        string faces[] = {"TWO","THREE","FOUR","FIVE","SIX" ,"SEVEN", "EIGHT", "NINE", "TEN", "KING" ,"QUEEN", "JACK", "ACE"};
+        for (auto s : suites){
+            for (auto f : faces){
+                d.emplace_back( new card(f,s));
+            }
+            
+            
+            
+        }
+        
+
     }
     void shuffle();
     
