@@ -30,7 +30,7 @@ public:
         for (auto m: playerdeck){
             m->print();
         }
-        cout << " value is:  " << calcValues() << endl;
+        cout << "Value is:  " << calcValues() << endl;
     }
     
     bool won(){
