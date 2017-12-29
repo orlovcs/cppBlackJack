@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "player.hpp"
+#include "dealer.hpp"
 #include "deck.hpp"
 using namespace std;
 int main(int argc, const char * argv[]) {
@@ -18,7 +19,10 @@ int main(int argc, const char * argv[]) {
     cin >> players;
     
     vector<player*> playerlist;
+    dealer * pdealer = new dealer("Dealer");
     
+    // once controll is initialized , create a dealer player in ctor
+
     for (int i = 0; i < players; ++i){
         cout << "enter name" << endl;
         string pname;
@@ -34,9 +38,12 @@ int main(int argc, const char * argv[]) {
     //make menu for view player, cards what each player has
     cout << "There are " << d.getSize() << " cards in the deck." << endl;
 
+    cout << "Cards are being shuffled." << endl;
     d.shuffle();
     
     cout << "cards are being dealt: " << endl;
+    pdealer->acceptCard(d.deal());
+    pdealer->acceptCard(d.deal());
     for (auto m: playerlist){
         if (!d.empty()){
         m->acceptCard(d.deal());
@@ -46,6 +53,7 @@ int main(int argc, const char * argv[]) {
     
     
     cout << "-----------" << endl;
+    pdealer->showHalf();
     cout << "players cards are: " << endl;
     for (auto m: playerlist){
         m->showCards();
@@ -53,8 +61,14 @@ int main(int argc, const char * argv[]) {
     cout << "-----------" << endl;
 
 
-    
-    
+    cout << "Checking for naturals in the players cards: " << endl;
+    for (auto m: playerlist){
+        if (m->calcValues()==21){
+            cout << m->getName() << " got a natural" << endl;
+            //initiate quit 
+        }
+    }
+    cout << "No naturals" << endl;
     
     cout << "hit: " << endl;
     for (auto m: playerlist){
