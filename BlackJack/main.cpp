@@ -1,5 +1,5 @@
 //Headeree
-
+//8 decks at max
 #include <iostream>
 #include <vector>
 #include "player.hpp"
@@ -38,20 +38,46 @@ int main(int argc, const char * argv[]) {
         m->showCards();
             }
     
+    for (auto m: playerlist){
+        if(m->won()){
+            cout << m->getName() << " has won" << endl;
+            exit(0);
+        }
+        else if(m->busted()){
+            cout << m->getName() << " has busted" << endl;
+            m->setInactive();
+        }
+    }
+    
     cout << "hit: " << endl;
     for (auto m: playerlist){
+        if (m->playeractive()){
         cout << "hit " << m->getName() << "?" << endl;
         string hit;
         cin >> hit;
         if (hit=="yes"){
         while (hit=="yes"){
             m->acceptCard(d.deal());
+            
+            if(m->won()){
+                cout << m->getName() << " has won" << endl;
+                exit(0);
+            }
+            else if(m->busted()){
+                cout << m->getName() << " has busted" << endl;
+                m->setInactive();
+                continue;
+            }
+            
             cout << "hit " << m->getName() << " again?" << endl;
             cin >> hit;
             m->showCards();
         }}else{
-    cout << m->getName() << " has folded" << endl;
+    cout << m->getName() << " has stood" << endl;
         m->showCards();
+        }
+        
+        
         }
     }
     

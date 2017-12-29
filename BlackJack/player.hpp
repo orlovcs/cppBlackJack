@@ -10,7 +10,15 @@ class player{
     string name;
     vector <card*> playerdeck;
     int value;
+    bool active = true;
 public:
+    bool playeractive(){
+        return active;
+    }
+    
+    void setInactive(){
+        active = false;
+    }
     player(string name): name{name} {}
     void acceptCard(card * o){
         playerdeck.emplace_back(o);
@@ -24,6 +32,24 @@ public:
             m->print();
         }
         cout << " value is:  " << calcValues() << endl;
+    }
+    
+    bool won(){
+        if (calcValues() == 21){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    bool busted(){
+        if (calcValues() > 21){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     int calcValues(){
