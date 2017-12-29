@@ -6,9 +6,15 @@
 #include "deck.hpp"
 using namespace std;
 int main(int argc, const char * argv[]) {
-    deck d;
+    
     int players;
-    cout << "enter amount of players" << endl;
+    int deckamount = 1;
+    
+    cout << "enter amount of decks 1-8" << endl;
+    cin >> deckamount;
+    deck d(deckamount);
+    
+    cout << "enter amount of players 2-7" << endl;
     cin >> players;
     
     vector<player*> playerlist;
@@ -24,6 +30,10 @@ int main(int argc, const char * argv[]) {
     for (auto m: playerlist){
         cout <<  m->getName() << endl;
     }
+    
+    //make menu for view player, cards what each player has
+    
+    cout << "There are " << d.getSize() << " cards left." << endl;
     
     d.shuffle();
     
@@ -62,7 +72,7 @@ int main(int argc, const char * argv[]) {
             m->acceptCard(d.deal());
             
             if(m->won()){
-                cout << m->getName() << " has won" << endl;
+                cout << m->getName() << " has a natural " << endl;
                 exit(0);
             }
             else if(m->busted()){

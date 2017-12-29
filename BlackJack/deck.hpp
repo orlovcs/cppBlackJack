@@ -10,7 +10,9 @@
 class deck{
     vector< card* > d;
 public:
-    deck(){
+    deck(int deckamount){
+        for(int i=0;i<deckamount;i++){
+        
         string suites[] = {"DIAMONDS", "CLUBS","SPADES", "HEARTS"};
         string faces[] = {"TWO","THREE","FOUR","FIVE","SIX" ,"SEVEN", "EIGHT", "NINE", "TEN", "KING" ,"QUEEN", "JACK", "ACE"};
         for (auto s : suites){
@@ -22,7 +24,7 @@ public:
             
         }
         
-
+        }
     }
     void shuffle(){
         srand( time(NULL) );
@@ -43,6 +45,9 @@ public:
     bool empty(){
         return d.empty();
         
+    }
+    size_t getSize(){
+        return d.size();
     }
     
     
