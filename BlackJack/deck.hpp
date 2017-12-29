@@ -4,6 +4,8 @@
 #define deck_hpp
 
 #include "card.hpp"
+#include <algorithm>
+#include <random>
 #include <vector>
 class deck{
     vector< card* > d;
@@ -22,7 +24,15 @@ public:
         
 
     }
-    void shuffle();
+    void shuffle(){
+        srand( time(NULL) );
+                for (int i = d.size()-1; i > 0; i--)
+        {
+            int r = rand() % (i+1);
+            std::swap(d[i], d[r]);
+        }
+        
+    }
     
     card* deal(){
         card * tmp = d.back();

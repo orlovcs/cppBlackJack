@@ -9,7 +9,6 @@
 class player{
     string name;
     vector <card*> playerdeck;
-    int value;
     bool active = true;
 public:
     bool playeractive(){
@@ -53,6 +52,7 @@ public:
     }
     
     int calcValues(){
+        int value = 0 ;
         int aceAmount = 0;
         for (auto m: playerdeck){
             
@@ -105,10 +105,7 @@ public:
             if ((value+11+aceAmount) <= 21) {value += 11;}
             else {value++;}
         }
-        
-        
         return value;
-        
         }
     
     

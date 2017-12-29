@@ -25,6 +25,8 @@ int main(int argc, const char * argv[]) {
         cout <<  m->getName() << endl;
     }
     
+    d.shuffle();
+    
     cout << "cards are being dealt: " << endl;
     for (auto m: playerlist){
         if (!d.empty()){
