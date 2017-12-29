@@ -11,7 +11,10 @@ class card {
 public:
     card(string face, string suit) : face{face}, suit{suit} {}
     void print(){
-        cout << "Face: "<<face << "Suit: " << suit << endl;
+        cout << "|!Face: "<<face << "Suit: " << suit << "|"<< endl;
+    }
+    string getFace(){
+        return face;
     }
     
 };

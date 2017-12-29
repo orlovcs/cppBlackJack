@@ -6,14 +6,23 @@
 #include "card.hpp"
 #include <vector>
 class deck{
-    vector<card> d;
+    vector< card* > d;
 public:
     deck(){
-        d.emplace_back(card("10","Hearts"));
+        d.emplace_back( new card("10","Hearts"));
     }
     void shuffle();
-    void deal();
-    bool empty();
+    
+    card* deal(){
+        card * tmp = d.back();
+        d.pop_back();
+        return tmp;
+    }
+    
+    bool empty(){
+        return d.empty();
+        
+    }
     
     
 };
