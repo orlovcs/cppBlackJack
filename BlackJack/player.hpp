@@ -9,10 +9,13 @@ class player: public abstractplayer{
 public:
     
     player(const string name): abstractplayer(name) {}
-
+    player(const string name, int bet): abstractplayer(name, bet) {}
     
     bool playeractive(){
         return active;
+    }
+    void resetBet(){
+        bet = 0;
     }
     
     void setInactive(){

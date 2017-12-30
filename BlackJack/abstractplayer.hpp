@@ -13,16 +13,27 @@ protected:
     const string name;
     vector <card*> playerdeck;
     bool active = true;
+    int bet;
+    int winnings;
 public:
   
    abstractplayer(const string name): name{name} {}
-   
+    abstractplayer(const string name, int bet): name{name}, bet{bet} {}
     void acceptCard(card * o){
         playerdeck.emplace_back(o);
     }
     string getName(){
         return name;
     }
+    int getBet(){
+        return bet;
+    }
+
+
+    void addWinnings(int add){
+        winnings += add;
+    }
+    
     void showCards(){
         cout << name <<" has: " << endl;
         for (auto m: playerdeck){

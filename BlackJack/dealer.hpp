@@ -9,7 +9,7 @@
 class dealer: public abstractplayer{
 public:
 
-    dealer(const string name): abstractplayer(name) {}
+    dealer(const string name): abstractplayer("Dealer"+name) {}
 
     void showHalf(){
         cout << "Dealer has: " << endl;
