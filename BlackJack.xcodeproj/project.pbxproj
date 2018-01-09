@@ -13,6 +13,7 @@
 		659034371FF5D17E00878CD6 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 659034351FF5D17E00878CD6 /* player.cpp */; };
 		6590343A1FF6EE3900878CD6 /* dealer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 659034381FF6EE3900878CD6 /* dealer.cpp */; };
 		6590343D1FF6F17900878CD6 /* abstractplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6590343B1FF6F17900878CD6 /* abstractplayer.cpp */; };
+		65DC29301FF9807300052EFF /* control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65DC292E1FF9807300052EFF /* control.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		659034391FF6EE3900878CD6 /* dealer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = dealer.hpp; sourceTree = "<group>"; };
 		6590343B1FF6F17900878CD6 /* abstractplayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = abstractplayer.cpp; sourceTree = "<group>"; };
 		6590343C1FF6F17900878CD6 /* abstractplayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = abstractplayer.hpp; sourceTree = "<group>"; };
+		65DC292E1FF9807300052EFF /* control.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = control.cpp; sourceTree = "<group>"; };
+		65DC292F1FF9807300052EFF /* control.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = control.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				659034271FF5CB7C00878CD6 /* main.cpp */,
+				65DC292F1FF9807300052EFF /* control.hpp */,
+				65DC292E1FF9807300052EFF /* control.cpp */,
 				659034301FF5CD6A00878CD6 /* card.hpp */,
 				6590342F1FF5CD6A00878CD6 /* card.cpp */,
 				659034331FF5CF4D00878CD6 /* deck.hpp */,
@@ -149,6 +154,7 @@
 				6590343D1FF6F17900878CD6 /* abstractplayer.cpp in Sources */,
 				659034311FF5CD6A00878CD6 /* card.cpp in Sources */,
 				659034341FF5CF4D00878CD6 /* deck.cpp in Sources */,
+				65DC29301FF9807300052EFF /* control.cpp in Sources */,
 				6590343A1FF6EE3900878CD6 /* dealer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

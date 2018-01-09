@@ -10,6 +10,9 @@
 class deck{
     vector< card* > d;
 public:
+    
+    deck(){}
+    
     deck(int deckamount){
         for(int i=0;i<deckamount;i++){
         

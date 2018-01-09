@@ -29,7 +29,9 @@ public:
         return bet;
     }
 
-
+    void doublebet(){
+        bet *= 2;
+    }
     void addWinnings(int add){
         winnings += add;
     }
